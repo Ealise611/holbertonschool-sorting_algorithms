@@ -3,11 +3,20 @@
 #include "sort.h"
 
 
-void swap(int* a, int* b);
+void swap(int *a, int *b);
 int partition(int array[], int low, int high, size_t size);
 void quicksort_recur(int array[], int low, int high, size_t size);
 
-void swap(int* a, int* b)
+/**
+ * swap - Swaps two elements in the array.
+ *
+ * @a: A pointer to the first element to be swapped.
+ * @b: A pointer to the second element to be swapped.
+ * Description: swap
+ */
+
+
+void swap(int *a, int *b)
 {
 	int temp;
 
@@ -16,11 +25,23 @@ void swap(int* a, int* b)
 	*b = temp;
 }
 
+/**
+ * partition - Partitions the array using Lomuto's partitioning scheme.
+ *
+ * @array: A pointer to the array to be partitioned.
+ * @low: The starting index of the section of the array to be partitioned.
+ * @high: The ending index of the section of the array to be partitioned.
+ * @size: The size of the array, used for printing the array after each swap.
+ * Description: partition
+ * Return: The index of the pivot element after partitioning.
+ */
+
 int partition(int array[], int low, int high, size_t size)
 {
 	int pivot_value, i, j;
 
-	if(array == NULL) return (-1);
+	if (array == NULL)
+		return (-1);
 
 	pivot_value = array[high];
 	i = low - 1;
@@ -32,7 +53,7 @@ int partition(int array[], int low, int high, size_t size)
 			if (i != j)
 			{
 				swap(&array[i], &array[j]);
-				print_array(array,size);
+				print_array(array, size);
 			}
 		}
 	}
@@ -43,6 +64,14 @@ int partition(int array[], int low, int high, size_t size)
 	}
 	return (i + 1);
 }
+/**
+ * quicksort_recur - Recursively applies the quicksort algorithm to the array.
+ * Description: quick sort recursion
+ * @array: A pointer to the array to be sorted.
+ * @low: The starting index of the section of the array to be sorted.
+ * @high: The ending index of the section of the array to be sorted.
+ * @size: The size of the array, used for printing the array after each swap.
+ */
 void quicksort_recur(int array[], int low, int high, size_t size)
 {
 	int pivot, identical, i;
@@ -75,7 +104,8 @@ void quicksort_recur(int array[], int low, int high, size_t size)
  * the pivot are placed after it. This process is applied recursively to
  * the left and right partitions of the array.
  *
- * Description:prints the array after each swap to display the sorting progress
+ * Description: prints the array after each swap to display
+ * the sorting progress
  * @array: A pointer to the array of integers to be sorted.
  * @size: The size of the array.
  * Return: nothing
