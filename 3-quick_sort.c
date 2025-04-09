@@ -5,7 +5,7 @@
 
 void swap(int* a, int* b);
 int partition(int array[], int low, int high, size_t size);
-void quicksort_recur(int array[], int low, int hight, size_t size);
+void quicksort_recur(int array[], int low, int high, size_t size);
 
 void swap(int* a, int* b)
 {
