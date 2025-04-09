@@ -50,7 +50,7 @@ void quicksort_recur(int array[], int low, int high, size_t size)
 	if (low < high)
 	{
 		identical = 1;
-		for (i = low + 1; i < high; i++)
+		for (i = low + 1; i <= high; i++)
 		{
 			if (array[i] != array[low])
 			{
