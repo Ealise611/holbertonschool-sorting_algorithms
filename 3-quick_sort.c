@@ -20,6 +20,8 @@ int partition(int array[], int low, int high, size_t size)
 {
 	int pivot_value, i, j;
 
+	if(array == NULL) return (-1);
+
 	pivot_value = array[high];
 	i = low - 1;
 	for (j = low; j < high; j++)
