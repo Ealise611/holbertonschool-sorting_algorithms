@@ -45,10 +45,20 @@ int partition(int array[], int low, int high, size_t size)
 }
 void quicksort_recur(int array[], int low, int high, size_t size)
 {
-	int pivot;
+	int pivot, identical, i;
 
 	if (low < high)
 	{
+		for (i = low + 1; i < high; i++)
+		{
+			if (array[i] != array[low])
+			{
+				identical = 0;
+				break;
+			}
+		}
+		if (identical)
+			return;
 		pivot = partition(array, low, high, size);
 		quicksort_recur(array, low, pivot - 1, size);
 		quicksort_recur(array, pivot + 1, high, size);
@@ -73,5 +83,7 @@ void quicksort_recur(int array[], int low, int high, size_t size)
 
 void quick_sort(int *array, size_t size)
 {
+	if (array == NULL || size == 0)
+		return;
 	quicksort_recur(array, 0, size - 1, size);
 }
